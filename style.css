@@ -1,0 +1,114 @@
+body {
+	font-family: "Poppins", sans-serif;
+	background-color: rgba(0, 0, 0, 0.8);
+	margin: 0;
+	color: white;
+}
+header::after {
+	content: "";
+	height: 100vh;
+	width: 100%;
+	background-image: url(assets/showcase.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	display: block;
+	filter: blur(8px);
+	transition: all 1s;
+}
+header:hover::after {
+	filter: blur(0);
+}
+header:hover .content {
+	filter: blur(2px);
+}
+.content {
+	position: absolute;
+	z-index: 1;
+	top: 50%;
+	left: 50%;
+	width: 300px;
+	height: 350px;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	transition: 1s all;
+}
+.content:hover {
+	filter: blur(0) !important;
+}
+.content .logo {
+	width: 180px;
+}
+.content .name {
+	font-size: 2.7rem;
+}
+.content .detail {
+	font-size: 1.5rem;
+}
+.container {
+	max-width: 960px;
+	padding: 4rem 1rem;
+	margin: auto;
+	overflow: hidden;
+}
+.grid-3 {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 20px;
+}
+.grid-2 {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+}
+.center {
+	text-align: center;
+}
+.bg-light {
+	background-color: #f4f4f4;
+	color: #333;
+}
+.bg-dark {
+	background-color: #333;
+	color: #f4f4f4;
+}
+footer {
+	padding: 18px 0px;
+}
+/*  Media query for Small Screens */
+
+@media (max-width: 560px) {
+	header::after {
+		height: 50vh;
+	}
+	.content {
+		top: 32%;
+	}
+	.content .logo {
+		width: 140px;
+	}
+	.content .detail {
+		display: none;
+	}
+	.grid-3,
+	.grid-2 {
+		grid-template-columns: 1fr;
+		padding: 3rem;
+	}
+	.grid-3 div {
+		margin: 15px 0;
+	}
+	.grid-2 div {
+		margin: 15px 0;
+	}
+}
+
+/* Media Query for Landscape */
+@media (max-height: 500px) {
+	.content .name,
+	.content .detail {
+		display: none;
+	}
+	.content {
+		top: 60%;
+	}
+}
